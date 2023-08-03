@@ -20,8 +20,8 @@
     --big-font-size: 2rem;             /* 32px */
     --icon-font-size: 1.5rem;          /* 24px */
     --normal-font-size: 1rem;          /* 16px */
-    --small-font-size: .875rem;        /* 14px */
-    --smaller-font-size: .75rem;       /* 12px */
+    --small-font-size: 0.875rem;       /* 14px */
+    --smaller-font-size: 0.75rem;      /* 12px */
 
     /*========== Font weight ==========*/
     --font-regular: 400;
@@ -231,6 +231,7 @@ nav {
     color: var(--text-color);
     border-radius: 1rem;
     display: none;
+    z-index: var(--z-fixed);
 }
 
 .modal__show {
