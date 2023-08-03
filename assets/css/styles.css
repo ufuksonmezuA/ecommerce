@@ -15,13 +15,13 @@
 
     /*========== Font and typography ==========*/
     --body-font: "Poppins", sans-serif;
-    --biggest-font-size: 4rem;
-    --bigger-font-size: 3rem;
-    --big-font-size: 2rem;
-    --icon-font-size: 1.5rem;
-    --normal-font-size: 1rem;
-    --small-font-size: .875rem;
-    --smaller-font-size: .75rem;
+    --biggest-font-size: 4rem;         /* 64px */
+    --bigger-font-size: 3rem;          /* 48px */
+    --big-font-size: 2rem;             /* 32px */
+    --icon-font-size: 1.5rem;          /* 24px */
+    --normal-font-size: 1rem;          /* 16px */
+    --small-font-size: .875rem;        /* 14px */
+    --smaller-font-size: .75rem;       /* 12px */
 
     /*========== Font weight ==========*/
     --font-regular: 400;
@@ -144,7 +144,7 @@ nav {
     justify-content: space-between;
 }
 
-.nav__logo{
+.nav__logo {
     display: flex;
     align-items: center;    
     font-size: var(--icon-font-size);
@@ -158,7 +158,7 @@ nav {
     cursor: pointer;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 959px) {
     .nav__menu {
         position: fixed;
         top: 0;
@@ -200,32 +200,65 @@ nav {
     font-size: var(--icon-font-size);
 }    
 
-.nav__close{
+.nav__close {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
 }
 
-.show-menu{
+.show-menu {
     right: 0;
 }
 
-.scroll-header{
+.scroll-header {
     backdrop-filter: blur(1rem);
     -webkit-backdrop-filter: blur(1rem);
 }
 
-.active-link{
+.active-link {
     color: var(--main-color);
     font-weight: var(--font-medium);
 }
+/*=============== POPUP ===============*/
+.modal__cart {
+    width: calc(27rem - 3rem);
+    top: calc(var(--header-height) + 1rem);
+    bottom: 2rem;
+    right: -100%;
+    padding: 1.5rem;
+    position: absolute ;
+    background-color: var(--container-color);
+    color: var(--text-color);
+    border-radius: 1rem;
+    display: none;
+
+}
+
+.modal__show {
+    right: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal__cart-close {
+    display: flex;
+    font-size: var(--icon-font-size);
+    color: var(--icon-color);
+    cursor: pointer;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+}
 
 /*=============== SCROLL BAR ===============*/
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 1rem;
     background-color: var(--container-color);
 }
-::-webkit-scrollbar-thumb{
+
+::-webkit-scrollbar-thumb {
     height: 3.5rem;
     border-radius: .75rem;
     border: .25rem solid transparent;
@@ -233,8 +266,15 @@ nav {
     background-color: var(--main-color);
 }
 
+/*=============== SELECTION ===============*/
+::selection {
+    color: var(--text-color);
+    background-color: var(--main-color);
+}
+
+
 /*=============== SCROLL UP ===============*/
-.scrollup{
+.scrollup {
     position: fixed;
     right: 1.5rem;
     bottom: -50%;
@@ -248,28 +288,35 @@ nav {
     z-index: var(--z-tooltip);
 }
 
-.scrollup:hover{
+.scrollup:hover {
     transform: tranlateY(-.25rem);
 }
 
-.show-scroll{
+.show-scroll {
     bottom: 3rem;
 }
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
-
+@media screen and (max-width: 480px) {
+    .container {
+        padding-inline: 0;
+    }
+    
+    nav {
+        width: calc(100% - 2rem);
+    }
+}
 /* For medium devices */
-@media screen and (min-width: 767px){
-    .nav__list{
+@media screen and (min-width: 959px) {
+    .nav__list {
         flex-direction: row;
         column-gap: 4.5rem
     }
     
-    .none, .nav__close, .nav__toggle{
+    .nav__close, .nav__toggle {
         display: none!important;
     }
 }
-
 /* For large devices */
 /* For 2K resolutions (2048 x 1152, 2048 x 1536) */
