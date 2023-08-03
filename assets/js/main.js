@@ -20,21 +20,23 @@ if(navClose){
 }
 
 /*=============== SHOW MODALCART ===============*/
-const modalCart = document.getElementById("modal-cart"),
-        modalButton = document.getElementById("modal-cart-button")
+const modal__cart = document.getElementById("modal-cart"),
+        modalbutton = document.getElementById("modal-cart-button"),
         modalClose = document.getElementById("modal-cart-close")
 
-/*===== MODALCART SHOW =====*/
-if(modalButton){
-    modalButton.addEventListener("click", () =>{
-        modalCart.classList.add("modal__show")
+/*===== MENU SHOW =====*/
+/* Validate if constant exists */
+if(modalbutton){
+    modalbutton.addEventListener("click", () =>{
+        modal__cart.classList.add("modal__show")
     })
 }
 
-/*===== MODALCART HIDDEN =====*/
-if(modalButton){
-    modalButton.addEventListener("click", () =>{
-        modalCart.classList.remove("modal__show")
+/*===== MENU HIDDEN =====*/
+/* Validate if constant exists */
+if(modalClose){
+    modalClose.addEventListener("click", () =>{
+        modal__cart.classList.remove("modal__show")
     })
 }
 

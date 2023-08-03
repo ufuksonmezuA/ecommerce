@@ -231,7 +231,6 @@ nav {
     color: var(--text-color);
     border-radius: 1rem;
     display: none;
-
 }
 
 .modal__show {
@@ -308,6 +307,12 @@ nav {
     }
 }
 /* For medium devices */
+@media screen and (max-width: 959px) {
+    .modal__cart  {
+        display: none!important;
+    }
+}
+
 @media screen and (min-width: 959px) {
     .nav__list {
         flex-direction: row;
