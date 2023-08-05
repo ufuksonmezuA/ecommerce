@@ -221,16 +221,17 @@ nav {
 }
 /*=============== POPUP ===============*/
 .modal__cart {
+    display: none;
     width: calc(27rem - 3rem);
-    top: calc(var(--header-height) + 1rem);
+    height: max-content;
     bottom: 2rem;
     right: -100%;
     padding: 1.5rem;
-    position: absolute ;
+    position: fixed;
     background-color: var(--container-color);
-    color: var(--text-color);
     border-radius: 1rem;
-    display: none;
+    color: var(--text-color);
+    overflow: hidden;
     z-index: var(--z-fixed);
 }
 
@@ -250,6 +251,10 @@ nav {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
+}
+
+.modal__cart__message {
+    line-height: 1.5rem;
 }
 
 /*=============== SCROLL BAR ===============*/
@@ -309,8 +314,12 @@ nav {
 }
 /* For medium devices */
 @media screen and (max-width: 959px) {
-    .modal__cart  {
-        display: none!important;
+    .modal__cart {
+        bottom: 0!important;
+        right: 0;
+        width: 100%;
+
+        border-radius: 1.5rem 1.5rem 0 0;
     }
 }
 
@@ -322,6 +331,9 @@ nav {
     
     .nav__close, .nav__toggle {
         display: none!important;
+    }
+    .modal__cart {
+        top: calc(var(--header-height) + 1rem);
     }
 }
 /* For large devices */
