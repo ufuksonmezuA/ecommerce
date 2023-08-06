@@ -110,6 +110,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: .5rem;
 }
 
 .section__title {
@@ -156,6 +157,14 @@ nav {
     font-size: var(--icon-font-size);
     color: var(--icon-color);
     cursor: pointer;
+}
+
+.nav__menu, 
+.nav__list,
+.nav__item,
+.nav__link {
+    width: max-content;
+    padding: 0 .5rem;
 }
 
 @media screen and (max-width: 959px) {
@@ -298,7 +307,7 @@ nav {
 }
 
 .show-scroll {
-    bottom: 3rem;
+    bottom: 6rem;
 }
 
 /*=============== BREAKPOINTS ===============*/
