@@ -6,7 +6,10 @@
     --header-height: 4.5rem;
     /*========== Colors ==========*/
     /*Color mode HSL(hue, saturation, lightness)*/
-    --main-color: hsl(36, 96%, 48%);
+    --main-color: hsl(36, 96%, 48%)7;
+    --main-color-light: hsl(36, 96%, 56%);
+    --main-color-dark: hsl(36, 96%, 42%);
+
     --title-color: hsl(0, 0%, 0%);
     --text-color: hsl(0, 0%, 10%);
     --body-color: hsl(0, 0%, 100%);
