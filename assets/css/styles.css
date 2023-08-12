@@ -6,7 +6,9 @@
     --header-height: 4.5rem;
     /*========== Colors ==========*/
     /*Color mode HSL(hue, saturation, lightness)*/
+    --main-color-light: hsl(36, 96%, 56%);
     --main-color: hsl(36, 96%, 48%);
+    --main-color-dark: hsl(36, 96%, 42%);
     --title-color: hsl(0, 0%, 0%);
     --text-color: hsl(0, 0%, 10%);
     --body-color: hsl(0, 0%, 100%);
@@ -159,12 +161,10 @@ nav {
     cursor: pointer;
 }
 
-.nav__menu, 
-.nav__list,
-.nav__item,
-.nav__link {
-    width: max-content;
-    padding: 0 .5rem;
+.nav__menu {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
 }
 
 @media screen and (max-width: 959px) {
@@ -183,18 +183,19 @@ nav {
 }
 
 .nav__list {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    row-gap: 3rem;
 }
 
 .nav__link {
+    width: 6rem;
     height: var(--header-height);
     display: inline-flex;
     align-items: center;
-    color: var(--title-color);
+    justify-content: center;    
     text-transform: capitalize;
 }
 
@@ -316,7 +317,7 @@ nav {
     .container {
         padding-inline: 0;
     }
-    
+
     nav {
         width: calc(100% - 2rem);
     }
@@ -327,23 +328,62 @@ nav {
         bottom: 0!important;
         right: 0;
         width: 100%;
-
         border-radius: 1.5rem 1.5rem 0 0;
     }
 }
 
-@media screen and (min-width: 959px) {
+@media screen and (min-width: 960px) {
     .nav__list {
         flex-direction: row;
-        column-gap: 4.5rem
+        column-gap: 2rem
     }
-    
+
     .nav__close, .nav__toggle {
         display: none!important;
     }
+
     .modal__cart {
         top: calc(var(--header-height) + 1rem);
     }
 }
 /* For large devices */
 /* For 2K resolutions (2048 x 1152, 2048 x 1536) */
+
+
+button {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.5rem;
+    padding: 0 1.5rem;
+    font-family: inherit;
+    border: 0;
+    border-radius: .5rem;
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    outline: none;
+    text-transform: capitalize;
+}
+
+button.primary {
+    background: var(--main-color);
+}
+
+button:hover {
+    background: var(--main-color-light);
+}
+
+button:focus {
+    background: var(--main-color-dark);
+    box-shadow: 0 0 0 3px var(--main-color-light);
+}
+
+button.disabled {
+    color: #555545;
+    background:#302e30;
+    cursor: not-allowed;
+    box-shadow: none;
+}
