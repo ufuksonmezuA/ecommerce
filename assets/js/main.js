@@ -118,3 +118,28 @@ themeButton.addEventListener("click", () => {
     localStorage.setItem("selected-theme", getCurrentTheme())
     localStorage.setItem("selected-icon", getCurrentIcon())
 })
+
+/*=============== Device Dark Mode is On or Off ===============*/ 
+const darkThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+const detectDarkMode = event =>{
+    if(event.matches)
+    {
+        document.body.classList.add(darkTheme);
+        console.log("Device Dark Mode is On");
+    }
+    else
+    {
+        document.body.classList.remove(darkTheme);
+        console.log("Device Dark Mode is Off");
+    }
+}
+detectDarkMode(darkThemeQuery);
+darkThemeQuery.addEventListener("change", e => detectDarkMode(e));
+
+/*=============== NAVIGATOR LANGUAGE ===============*/
+const userLanguage = navigator.language;
+console.log("Users language", userLanguage);
+
+/*=============== NAVIGATOR ONLINE ===============*/
+const isUserOnline = navigator.onLine;
+const statusMessage = console.log(isUserOnline ? "User is online" : "User is not online");
