@@ -6,24 +6,28 @@
     --header-height: 4.5rem;
     /*========== Colors ==========*/
     /*Color mode HSL(hue, saturation, lightness)*/
-    --main-color-light: hsl(36, 96%, 56%);
+    --main-color-light: rgb(251, 164, 35);
     --main-color: hsl(36, 96%, 48%);
     --main-color-dark: hsl(36, 96%, 42%);
 
     /*========== Font and typography ==========*/
     --body-font: "Poppins", sans-serif;
-    --biggest-font-size: 4rem;         /* 64px */
-    --bigger-font-size: 3rem;          /* 48px */
-    --big-font-size: 2rem;             /* 32px */
-    --icon-font-size: 1.5rem;          /* 24px */
-    --normal-font-size: 1rem;          /* 16px */
-    --small-font-size: 0.875rem;       /* 14px */
-    --smaller-font-size: 0.75rem;      /* 12px */
+    --h1-font-size: 3.5rem;         /* 56px */
+    --h2-font-size: 3rem;           /* 48px */
+    --h3-font-size: 2.5rem;         /* 40px */
+    --h4-font-size: 2rem;           /* 32px */
+    --h5-font-size: 1.5rem;         /* 24px */
+    --icon-font-size: 1.5rem;       /* 24px */
+    --h6-font-size: 1rem;           /* 16px */
+    --body-font-size-1: 0.875rem;   /* 14px */
+    --body-font-size-2: 0.750rem;   /* 12px */
+    --body-font-size-3: 0.625rem;   /* 10px */
 
     /*========== Font weight ==========*/
     --font-regular: 400;
     --font-medium: 500;
     --font-semi-bold: 600;
+    --font-bold: 700;
 
     /*========== z index ==========*/
     --z-tooltip: 10;
@@ -51,8 +55,13 @@
     }
 }
 
+[class^="ri-"], [class*=" ri-"]  {
+    width: var(--icon-font-size);
+    height: var(--icon-font-size);
+}
+
 /*=============== BASE ===============*/
-* {
+*,*::before,*::after {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -74,9 +83,12 @@ body {
     justify-content: center;
 }
 
-h1, h2, h3, h4 {
-    color: var(--title-color);
-    font-weight: var(--font-regular);
+h1, h2, h3 {
+    font-weight: var(--font-bold);
+}
+
+h4, h5, h6 {
+    font-weight: var(--font-medium);
 }
 
 ul {
@@ -94,16 +106,20 @@ img {
     height: auto;
 }
 
+input{
+    accent-color: var(--main-color);
+}
+
 input,
 button {
     font-family: var(--body-font);
-    font-size: var(--normal-font-size);
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
     position: relative;
-    /*max-width: 1200px;*/
+    width: min(100% - 2rem, 96rem);
+    margin-inline: auto;
     padding-inline: 1.5rem;
 }
 
@@ -233,6 +249,7 @@ nav {
 }
 
 .scroll-header {
+    width: 100%;
     backdrop-filter: blur(1rem);
     -webkit-backdrop-filter: blur(1rem);
 }
@@ -346,10 +363,14 @@ button.disabled {
 /*=============== SCROLL UP ===============*/
 .scrollup {
     position: fixed;
+    width: 3rem;
+    height: 3rem;
     right: 1.5rem;
     bottom: -50%;
     background: var(--main-color);
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: .5rem;
     font-size: var(--icon-font-size);
     color: var(--icon-color);

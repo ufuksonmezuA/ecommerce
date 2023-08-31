@@ -4,31 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ecommerce</title>
-    <!--==========  FAVICON  ========== -->
-    <link rel="shortcut icon" href="assets/images/favicon/favicon.ico" type="image/x-icon"/>
-    <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon"/>
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicon/apple-icon-57x57.png"/>
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicon/apple-icon-60x60.png"/>
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon/apple-icon-72x72.png"/>
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicon/apple-icon-76x76.png"/>
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-icon-114x114.png"/>
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicon/apple-icon-120x120.png"/>
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicon/apple-icon-144x144.png"/>
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicon/apple-icon-152x152.png"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-icon-180x180.png"/>
-    <link rel="android-icon" sizes="36x36" href="assets/images/favicon/android-icon-36x36.png"/>
-    <link rel="android-icon" sizes="36x36" href="assets/images/favicon/android-icon-48x48.png"/>
-    <link rel="android-icon" sizes="36x36" href="assets/images/favicon/android-icon-72x72.png"/>
-    <link rel="android-icon" sizes="36x36" href="assets/images/favicon/android-icon-96x96.png"/>
-    <link rel="android-icon" sizes="36x36" href="assets/images/favicon/android-icon-144x144.png"/>
-    <link rel="android-icon" sizes="36x36" href="assets/images/favicon/android-icon-192x192.png"/>
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png"/>
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png"/>
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon/favicon-96x96.png"/>
-    <meta name="msapplication-TileColor" content="#ffffff"/>
-    <meta name="msapplication-TileImage" content="assets/images/favicon/ms-icon-144x144.png"/>
-    <meta name="theme-color" content="#ffffff"/>
-    <meta name="color-scheme" content="light dark"/>
+    <link rel="icon" href="/assets/images/favicon/favicon.svg">
     <!--==========  CSS - JS Folders  ========== -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@latest/fonts/remixicon.css"/>
     <link rel="stylesheet" href="assets/css/styles.css"/>
@@ -68,8 +44,8 @@
                 <i class="ri-user-line"></i>
                 <!-- Cart button -->
                 <i class="ri-shopping-cart-line" id="modal-cart-button"></i>
-                <!-- Theme button -->
-                <i class="ri-moon-line change-theme" id="theme-button"></i>
+                <!-- Theme button 
+                <i class="ri-moon-line change-theme" id="theme-button"></i>-->
                 <!-- Toggle button -->
                 <div class="nav__toggle" id="nav-toggle">
                     <i class="ri-apps-line"></i>
@@ -81,17 +57,19 @@
     <main class="main">
         <!--==================== man ====================-->
         <section class="man section" id="man">
-            <div class="section__header">
+            <div class="section__title__area">
                 <h2 class="section__title">man</h2>
                 <button>view all</button>
             </div>
-            <article>
-                <figure>
-                    <!-- <img src="" alt="image"> -->
-                    <figcaption></figcaption>
-                    <pre></pre>
-                </figure>
-            </article> 
+            <div class="section__content__area">
+                <article class="section__content">
+                    <figure>
+                        <!-- <img src="" alt="image"> -->
+                        <figcaption></figcaption>
+                        <pre></pre>
+                    </figure>
+                </article>
+            </div>
         </section>
         <!--==================== woman ====================-->
         <section class="woman section" id="woman">
@@ -131,6 +109,7 @@
     <footer class="footer">
         <div class="logo-area">
             <img src="" alt="">
+            <div id="year"></div>
         </div>
         <div class="social-area">
             <i class="ri-instagram-line"></i>
@@ -153,9 +132,11 @@
     </div>
     <!--========== SCROLL UP ==========-->
     <a href="#" class="scrollup" id="scroll-up">
-        <i class="ri-arrow-up-line"></i>
+        <i class="ri ri-arrow-up-line"></i>
     </a>
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
