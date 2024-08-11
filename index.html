@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- <meta name="color-scheme" content="light dark" /> -->
     <title>ecommerce</title>
-    <link rel="icon" href="/assets/images/favicon/favicon.svg">
+    <link rel="icon" href="/assets/images/favicon/favicon.svg"/>
     <!--==========  CSS - JS Folders  ========== -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@latest/fonts/remixicon.css"/>
     <link rel="stylesheet" href="assets/css/styles.css"/>
@@ -44,66 +45,74 @@
                 <i class="ri-user-line"></i>
                 <!-- Cart button -->
                 <i class="ri-shopping-cart-line" id="modal-cart-button"></i>
-                <!-- Theme button 
-                <i class="ri-moon-line change-theme" id="theme-button"></i>-->
+                <!-- Theme button  -->
+                <i class="ri-moon-line change-theme" id="theme-button"></i>
                 <!-- Toggle button -->
                 <div class="nav__toggle" id="nav-toggle">
-                    <i class="ri-apps-line"></i>
+                    <i class="ri-apps-2-line"></i>
                 </div>
             </div>
         </nav>
     </header>
     <!--==================== MAIN ====================-->
     <main class="main">
-        <!--==================== man ====================-->
-        <section class="man section" id="man">
-            <div class="section__title__area">
-                <h2 class="section__title">man</h2>
-                <button>view all</button>
-            </div>
-            <div class="section__content__area">
-                <article class="section__content">
+        <section class="slider-section"></section>
+        <div class="container">
+            <!--==================== man ====================-->
+            <section class="man section" id="man">
+                <div class="section__header">
+                    <div class="section__title">
+                        <h2 class="section__title">man</h2>
+                    </div>
+                    <div class="section__button">
+                        <button>view all</button>
+                    </div>
+                </div>
+                
+                <div class="section__content__area">
+                    <article class="section__content">
+                        <figure>
+                            <!-- <img src="" alt="image"> -->
+                            <figcaption></figcaption>
+                            <pre></pre>
+                        </figure>
+                    </article>
+                </div>
+            </section>
+            <!--==================== woman ====================-->
+            <section class="woman section" id="woman">
+                <h2 class="section__title">woman<h2>
+                <article>
                     <figure>
                         <!-- <img src="" alt="image"> -->
                         <figcaption></figcaption>
                         <pre></pre>
                     </figure>
                 </article>
-            </div>
-        </section>
-        <!--==================== woman ====================-->
-        <section class="woman section" id="woman">
-            <h2 class="section__title">woman<h2>
-            <article>
-                <figure>
-                    <!-- <img src="" alt="image"> -->
-                    <figcaption></figcaption>
-                    <pre></pre>
-                </figure>
-            </article>
-        </section>
-        <!--==================== child ====================-->
-        <section class="child section" id="child">
-            <h2 class="section__title">child<h2>
-            <article>
-                <figure>
-                    <!-- <img src="" alt="image"> -->
-                    <figcaption></figcaption>
-                    <pre></pre>
-                </figure>
-            </article>
-        </section>
-        <!--==================== baby ====================-->
-        <section class="baby section" id="baby">
-            <h2 class="section__title">baby<h2>
-            <article>
-                <figure>
-                    <!-- <img src="" alt="image"> -->
-                    <figcaption></figcaption>
-                    <pre></pre>
-                </figure>
-            </article>
-        </section>
+            </section>
+            <!--==================== child ====================-->
+            <section class="child section" id="child">
+                <h2 class="section__title">child<h2>
+                <article>
+                    <figure>
+                        <!-- <img src="" alt="image"> -->
+                        <figcaption></figcaption>
+                        <pre></pre>
+                    </figure>
+                </article>
+            </section>
+            <!--==================== baby ====================-->
+            <section class="baby section" id="baby">
+                <h2 class="section__title">baby<h2>
+                <article>
+                    <figure>
+                        <!-- <img src="" alt="image"> -->
+                        <figcaption></figcaption>
+                        <pre></pre>
+                    </figure>
+                </article>
+            </section>
+        </div>
     </main>
     <!--==================== FOOTER ====================--
     <footer class="footer">
@@ -121,12 +130,17 @@
     </footer> -->
     <!--==================== modalCart ====================-->
     <div class="modal__cart" id="modal-cart">
-        <div class="modal__cart-close" id="modal-cart-close">
-            <i class="ri-close-line"></i>
-        </div>
-        <div class="cart__content-area" id="cart-content-area">
-            <div class="modal__cart__message" id="modal-cart-message">
-                Your cart is empty
+        <div class="modal__cart-wrapper">
+            <div class="modal__cart-header">
+                <div class="modal__cart-title" id="modal-cart-title">
+                    Your cart is empty
+                </div>
+                <div class="modal__cart-close" id="modal-cart-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+            <div class="modal__cart-content" id="modal-cart-content">
+
             </div>
         </div>
     </div>
@@ -138,5 +152,3 @@
     <script src="assets/js/main.js"></script>
 </body>
 </html>
-
-

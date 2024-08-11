@@ -6,7 +6,7 @@ const navMenu = document.getElementById("nav-menu"),
 /*===== MENU SHOW =====*/
 /* Validate if constant exists */
 if (navToggle) {
-        navToggle.addEventListener("click", () => {
+    navToggle.addEventListener("click", () => {
         navMenu.classList.add("show-menu");
     });
 }
@@ -14,7 +14,7 @@ if (navToggle) {
 /*===== MENU HIDDEN =====*/
 /* Validate if constant exists */
 if (navClose) {
-        navClose.addEventListener("click", () => {
+    navClose.addEventListener("click", () => {
         navMenu.classList.remove("show-menu");
     });
 }
@@ -24,18 +24,18 @@ const modalCart = document.getElementById("modal-cart"),
     modalButton = document.getElementById("modal-cart-button"),
     modalClose = document.getElementById("modal-cart-close");
 
-/*===== MENU SHOW =====*/
+/*===== MODALCART SHOW =====*/
 /* Validate if constant exists */
 if (modalButton) {
-        modalButton.addEventListener("click", () => {
+    modalButton.addEventListener("click", () => {
         modalCart.classList.add("modal__show");
     });
 }
 
-/*===== MENU HIDDEN =====*/
+/*===== MODALCART HIDDEN =====*/
 /* Validate if constant exists */
 if (modalClose) {
-        modalClose.addEventListener("click", () => {
+    modalClose.addEventListener("click", () => {
         modalCart.classList.remove("modal__show");
     });
 }
@@ -45,7 +45,7 @@ const navLink = document.querySelectorAll(".nav__link");
 
 const linkAction = () => {
     const navMenu = document.getElementById("nav-menu");
-  // When we click on each nav__link, we remove the show-menu class
+    //When we click on each nav__link, we remove the show-menu class
     navMenu.classList.remove("show-menu");
 };
 navLink.forEach((n) => n.addEventListener("click", linkAction));
@@ -68,11 +68,11 @@ const scrollActive = () => {
 
     sections.forEach((current) => {
         const sectionHeight = current.offsetHeight,
-            sectionTop = current.offsetTop - 72,
+            sectionTop = current.offsetTop + 240,
             sectionId = current.getAttribute("id"),
             sectionsClass = document.querySelector(
                 ".nav__menu a[href*=" + sectionId + "]"
-            );
+    );
 
         if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
             sectionsClass.classList.add("active-link");
@@ -90,10 +90,10 @@ const scrollUp = () => {
     this.scrollY >= 384
         ? scrollUp.classList.add("show-scroll")
         : scrollUp.classList.remove("show-scroll");
-    };
+};
 window.addEventListener("scroll", scrollUp);
 
-/*=============== DARK LIGHT THEME ===============
+/*=============== DARK LIGHT THEME ===============*/
 const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
 const iconTheme = "ri-sun-line";
@@ -107,27 +107,36 @@ const getCurrentTheme = () =>
     document.body.classList.contains(darkTheme) ? "dark" : "light";
 const getCurrentIcon = () =>
     themeButton.classList.contains(iconTheme) ? "ri-moon-line" : "ri-sun-line";
-
 // We validate if the user previously chose a topic
-if (selectedTheme) {
-  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-    document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
-    darkTheme
-    );
-    themeButton.classList[selectedIcon === "ri-moon-line" ? "add" : "remove"](
-    iconTheme
-    );
+if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+    // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
+    document.body.classList[selectedTheme === "dark" ? "add" : "remove"](darkTheme);
+    themeButton.classList[selectedIcon === "ri-moon-line" ? "add" : "remove"](iconTheme);
+
+    localStorage.theme = 'light'
+    localStorage.removeItem = 'light'
+
+    // Whenever the user explicitly chooses dark mode
+    localStorage.theme = 'dark'
+    localStorage.removeItem = 'dark'
+
+    // Whenever the user explicitly chooses to respect the OS preference
+    localStorage.removeItem('theme')
 }
 
 // Activate / deactivate the theme manually with the button
 themeButton.addEventListener("click", () => {
-  // Add or remove the dark / icon theme
+    // Add or remove the dark / icon theme
     document.body.classList.toggle(darkTheme);
     themeButton.classList.toggle(iconTheme);
-  // We save the theme and the current icon that the user chose
+    // We save the theme and the current icon that the user chose
     localStorage.setItem("selected-theme", getCurrentTheme());
     localStorage.setItem("selected-icon", getCurrentIcon());
-});*/
+});
 
 /*=============== DYNAMIC YEAR ===============*/
 // let year = document.getElementById("year");
