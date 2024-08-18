@@ -10,6 +10,7 @@
     --main-color: hsl(32, 96%, 48%);
     --main-color-dark: hsl(32, 96%, 56%);
 
+
     /*========== Font and typography ==========*/
     --body-font: "Poppins", sans-serif;
     --h1-font-size: 3.5rem;         /* 56px */
@@ -34,10 +35,10 @@
     --z-fixed: 100;
 }
 
-/* :root {color-scheme: light dark;} */
+:root {color-scheme: light dark;}
 
 @media (prefers-color-scheme: dark) {
-    body.dark-theme{
+    .dark-theme{
         --title-color: hsl(0, 0%, 100%);
         --text-color: hsl(0, 0%, 90%);
         --body-color: hsl(0, 0%, 7%);
@@ -46,13 +47,12 @@
     }
 }
 
-    body.light-theme{
-        --title-color: hsl(0, 0%, 0%);
-        --text-color: hsl(0, 0%, 10%);
-        --body-color: hsl(0, 0%, 100%);
-        --container-color: hsl(0, 0%, 86%);
-        --icon-color: hsl(0, 0%, 0%);
-    }
+    .light-theme{
+    --title-color: hsl(0, 0%, 0%);
+    --text-color: hsl(0, 0%, 10%);
+    --body-color: hsl(0, 0%, 100%);
+    --container-color: hsl(0, 0%, 86%);
+    --icon-color: hsl(0, 0%, 0%);}
 
 
 [class^="ri-"], [class*=" ri-"]  {
@@ -68,7 +68,6 @@
 }
 
 html {
-    display: flex;
     scroll-behavior: smooth;
     height: 100vh;
 }
@@ -133,7 +132,8 @@ button {
 
 .section {
     width: 100%;
-    height: 40rem;
+    height: 100vh;
+    padding: 9rem 0;
 }
 
 .section__header {
@@ -148,12 +148,22 @@ button {
     font-size: var(--h4-font-size);
 }
 
+.slider-section {
+    width: 100%;
+    min-height: 640px;
+    background-color: var(--main-color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .main {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: calc(var(--header-height) + 0rem)
 }
 
 .footer {
@@ -273,14 +283,6 @@ nav {
     font-weight: var(--font-medium);
 }
 
-.slider-section {
-    width: 100%;
-    min-height: 640px;
-    background-color: var(--container-color);
-}
-
-
-
 /*=============== BUTTON ===============*/
 button {
     position: relative;
@@ -358,7 +360,7 @@ button.disabled {
 }
 
 .modal__cart-wrapper{
-    width: 100%;
+    width: min(100vw - 4rem, 96rem);
     height: max-content;
 }
 
