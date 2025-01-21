@@ -94,7 +94,6 @@ const scrollUp = () => {
 window.addEventListener("scroll", scrollUp);
 
 /*=============== DARK LIGHT THEME ===============*/
-
 const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
 const iconTheme = "ri-sun-line";
@@ -107,29 +106,53 @@ const selectedIcon = localStorage.getItem("selected-icon");
 const getCurrentTheme = () =>
   document.body.classList.contains(darkTheme) ? "dark" : "light";
 const getCurrentIcon = () =>
-  themeButton.classList.contains(iconTheme)
-    ? "ri ri-moon-line"
-    : "ri ri-sun-line";
+  themeButton.classList.contains(iconTheme) ? "ri-moon-line" : "ri-sun-line";
 
-// We validate if the user previously chose a topic
+// Function to set the theme based on user preference or system preference
+const setTheme = (theme, icon) => {
+  document.body.classList[theme === "dark" ? "add" : "remove"](darkTheme);
+  themeButton.classList[icon === "ri-moon-line" ? "add" : "remove"](iconTheme);
+  localStorage.setItem("selected-theme", theme);
+  localStorage.setItem("selected-icon", icon);
+};
+
+// Check for system preference
+const prefersDarkMode =
+  window.matchMedia &&
+  window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+// Initial theme setup: Check local storage first, then system preference
 if (selectedTheme) {
-  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
-    darkTheme
-  );
-  themeButton.classList[selectedIcon === "ri ri-moon-line" ? "add" : "remove"](
-    iconTheme
-  );
+  setTheme(selectedTheme, selectedIcon);
+} else if (prefersDarkMode) {
+  setTheme("dark", "ri-moon-line"); // Set dark theme and moon icon
 }
+
+// Listen for changes in system preference
+window
+  .matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", (event) => {
+    if (!localStorage.getItem("selected-theme")) {
+      // Only change if user hasn't manually set a theme
+      setTheme(
+        event.matches ? "dark" : "light",
+        event.matches ? "ri-moon-line" : "ri-sun-line"
+      );
+    }
+  });
 
 // Activate / deactivate the theme manually with the button
 themeButton.addEventListener("click", () => {
-  // Add or remove the dark / icon theme
+  // Toggle the theme and icon
   document.body.classList.toggle(darkTheme);
   themeButton.classList.toggle(iconTheme);
-  // We save the theme and the current icon that the user chose
+
+  // Update local storage
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
+
+  //If the user clicks the button, we want to stop listening to system preferences
+  //so that the user's choice is respected.
 });
 
 /*=============== DYNAMIC YEAR ===============*/

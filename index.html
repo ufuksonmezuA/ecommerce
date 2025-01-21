@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- <meta name="color-scheme" content="light dark" /> -->
     <title>ecommerce</title>
-    <link rel="icon" href="/assets/images/favicon/favicon.svg"/>
+    <link rel="icon" href="./assets/images/favicon/favicon.svg"/>
     <!--==========  CSS - JS Folders  ========== -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@latest/fonts/remixicon.css"/>
     <link rel="stylesheet" href="assets/css/styles.css"/>
@@ -40,15 +40,27 @@
             </div>
             <div class="nav__buttons">
                 <!-- Search button -->
-                <i class="ri-search-line"></i>
+                <div class="iconWrapper">
+                    <i class="ri-search-line"></i>
+                </div>
+                
                 <!-- User button -->
-                <i class="ri-user-line"></i>
+                <div class="iconWrapper">
+                    <i class="ri-user-line"></i>
+                </div> 
+                
                 <!-- Cart button -->
-                <i class="ri-shopping-cart-line" id="modal-cart-button"></i>
+                <div class="iconWrapper" id="modal-cart-button">
+                    <i class="ri-shopping-cart-line"></i>
+                </div>
+                
                 <!-- Theme button  -->
-                <i class="ri-moon-line change-theme" id="theme-button"></i>
+                <div class="iconWrapper icon-transition">
+                    <i class="ri-moon-line" id="theme-button"></i>
+                </div>
+                
                 <!-- Toggle button -->
-                <div class="nav__toggle" id="nav-toggle">
+                <div class="iconWrapper nav__toggle" id="nav-toggle">
                     <i class="ri-apps-2-line"></i>
                 </div>
             </div>

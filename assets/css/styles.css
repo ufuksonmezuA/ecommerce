@@ -9,8 +9,7 @@
     --main-color-light: hsl(32, 96%, 40%);
     --main-color: hsl(32, 96%, 48%);
     --main-color-dark: hsl(32, 96%, 56%);
-
-
+    
     /*========== Font and typography ==========*/
     --body-font: "Poppins", sans-serif;
     --h1-font-size: 3.5rem;         /* 56px */
@@ -35,29 +34,32 @@
     --z-fixed: 100;
 }
 
-:root {color-scheme: light dark;}
+:root {color-scheme: dark;}
 
 @media (prefers-color-scheme: dark) {
-    .dark-theme{
+    body.dark-theme{
         --title-color: hsl(0, 0%, 100%);
         --text-color: hsl(0, 0%, 90%);
         --body-color: hsl(0, 0%, 7%);
-        --container-color: hsl(0, 0%, 14%);
+        --container-color: hsl(0, 0%, 16%);
         --icon-color: hsl(0, 0%, 100%);
     }
 }
-
-    .light-theme{
+:root {color-scheme: light;}
+@media (prefers-color-scheme: light){
+    body.light-theme{
     --title-color: hsl(0, 0%, 0%);
     --text-color: hsl(0, 0%, 10%);
     --body-color: hsl(0, 0%, 100%);
-    --container-color: hsl(0, 0%, 86%);
+    --container-color: hsl(0, 0%, 14%);
     --icon-color: hsl(0, 0%, 0%);}
-
+}
 
 [class^="ri-"], [class*=" ri-"]  {
     width: var(--icon-font-size);
     height: var(--icon-font-size);
+    align-items: center;
+    justify-content: center;
 }
 
 /*=============== BASE ===============*/
@@ -65,6 +67,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
 }
 
 html {
@@ -248,17 +252,31 @@ nav {
     height: var(--header-height);
     display: inline-flex;
     align-items: center;
-    justify-content: center;    
     text-transform: capitalize;
 }
 
 .nav__buttons {
     display: flex;
     align-items: center;
-    column-gap: 1.5rem;
+    justify-content: center; 
+    column-gap: .25rem;
 }
 
-.nav__buttons > i {
+.iconWrapper {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.iconWrapper:hover {
+    background-color: var(--container-color);
+    border-radius: 3rem;
+}
+
+.iconWrapper > i {
     cursor: pointer;
     font-size: var(--icon-font-size);
 }    
@@ -332,7 +350,7 @@ button.disabled {
     right: -100%;
     padding: 1.5rem 1rem;
     position: fixed;
-    background-color: var(--container-color);
+    background-color: var(--container-color) !important;
     border-radius: 1rem;
     color: var(--text-color);
     overflow: hidden;
@@ -439,6 +457,11 @@ button.disabled {
 }
 /* For medium devices */
 @media screen and (max-width: 959px) {
+    .container {
+
+        width: min(100vw - 0rem, 96rem);
+        padding-inline: 1rem;
+    }
     .modal__cart {
         bottom: 0!important;
         right: 0;
